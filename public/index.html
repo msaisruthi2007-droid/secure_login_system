@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101a2d" />
+  <title>Secure Login System</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="brand-panel">
+      <div class="brand-mark">S</div>
+      <p class="eyebrow">ACCOUNT SECURITY PORTAL</p>
+      <h1>Your security.<br><span>Our priority.</span></h1>
+      <p class="brand-copy">A safer sign-in experience with protected passwords, secure sessions and an extra layer of verification.</p>
+      <div class="security-points">
+        <div><span class="check">✓</span> Passwords are securely hashed</div>
+        <div><span class="check">✓</span> Validated account information</div>
+        <div><span class="check">✓</span> Protected login sessions</div>
+      </div>
+      <div class="brand-footer">SECURE LOGIN SYSTEM <span>•</span> 2026</div>
+    </section>
+
+    <section class="form-panel">
+      <div id="authView">
+        <div class="panel-heading">
+          <p class="eyebrow">WELCOME</p>
+          <h2 id="formTitle">Sign in to your account</h2>
+          <p id="formSubtitle">Enter your credentials to continue.</p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" id="loginTab" type="button">Sign in</button>
+          <button class="tab" id="registerTab" type="button">Create account</button>
+        </div>
+        <form id="authForm" novalidate>
+          <div class="field" id="nameField" hidden>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="60" />
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required />
+            <small id="passwordHint" hidden>At least 8 characters, including uppercase, lowercase, a number and a special character.</small>
+          </div>
+          <button class="primary-button" id="submitButton" type="submit">Sign in <span>→</span></button>
+        </form>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+        <div class="privacy-note"><span>◈</span> Your credentials are protected using secure authentication practices.</div>
+      </div>
+
+      <div id="twoFactorView" hidden>
+        <div class="panel-heading"><p class="eyebrow">TWO-STEP VERIFICATION</p><h2>Verify it's you</h2><p>Enter the 6-digit code from your authenticator app.</p></div>
+        <form id="twoFactorForm">
+          <div class="field"><label for="loginCode">Authentication code</label><input id="loginCode" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required /></div>
+          <button class="primary-button" type="submit">Verify and sign in <span>→</span></button>
+        </form>
+        <div id="twoFactorMessage" class="message" role="status"></div>
+      </div>
+
+      <div id="dashboardView" hidden>
+        <div class="panel-heading"><p class="eyebrow">ACCOUNT OVERVIEW</p><h2>You're signed in.</h2><p>Your account session is active and protected.</p></div>
+        <div class="profile-card"><div class="avatar" id="avatar">U</div><div><strong id="userName">User</strong><p id="userEmail"></p></div></div>
+        <div class="status-card"><span class="status-dot"></span><div><strong>Session protected</strong><p>Your account is authenticated.</p></div></div>
+        <div class="twofa-card"><div><strong>Two-factor authentication</strong><p id="twofaStatus">Not enabled</p></div><button class="secondary-button" id="twofaButton" type="button">Set up 2FA</button></div>
+        <div id="twofaSetup" class="setup-card" hidden>
+          <p class="setup-title">Set up your authenticator</p>
+          <p class="muted">Scan this QR code using an authenticator app, then enter the code it generates.</p>
+          <img id="qrImage" alt="Authenticator setup QR code" />
+          <p class="muted">Manual key: <code id="manualSecret"></code></p>
+          <form id="enable2faForm"><div class="field"><label for="enableCode">6-digit code</label><input id="enableCode" inputmode="numeric" maxlength="6" placeholder="000000" required /></div><button class="primary-button" type="submit">Enable 2FA</button></form>
+        </div>
+        <div id="disable2fa" class="setup-card" hidden><p class="setup-title">Disable 2FA</p><form id="disable2faForm"><div class="field"><label for="disableCode">Current authenticator code</label><input id="disableCode" inputmode="numeric" maxlength="6" placeholder="000000" required /></div><button class="secondary-button" type="submit">Disable 2FA</button></form></div>
+        <div id="dashboardMessage" class="message" role="status"></div>
+        <button class="logout-button" id="logoutButton" type="button">Sign out <span>↗</span></button>
+      </div>
+    </section>
+  </main>
+  <footer class="mobile-footer">SECURE LOGIN SYSTEM • PROTECTED ACCESS</footer>
+</body>
+</html>

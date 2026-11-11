@@ -1,0 +1,22 @@
+{
+  "name": "secure-login-system",
+  "version": "1.0.0",
+  "description": "Secure login application with password hashing, validation, sessions, SQL injection protection and optional 2FA",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-sqlite3": "^0.9.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "joi": "^17.13.3",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.4",
+    "sqlite3": "^5.1.7",
+    "winston": "^3.17.0"
+  }
+}
